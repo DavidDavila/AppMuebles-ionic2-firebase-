@@ -1,0 +1,22 @@
+page-market {
+	img {
+		object-fit: cover;
+	    height: 100%; 
+	    text-align: center;
+	    margin: 0 auto;
+	}
+	.ion-ios-star {
+	    color: #f5d738; 
+	}
+	ion-spinner{
+		margin: 0 auto;
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center; 
+	    align-items: center;
+	    height: 100%;
+	}
+	.new{
+		background: rgba(245, 215, 56, 0.05);
+	}
+}

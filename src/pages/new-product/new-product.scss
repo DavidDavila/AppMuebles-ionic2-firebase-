@@ -1,0 +1,15 @@
+page-new-product {
+	.item.hide{
+		display : none;
+	}
+	.camera{ 
+		font-size: 50px;
+	    display: block;
+    	text-align: center;
+	}
+	img{
+		object-fit: cover;
+		max-width: 100%;
+		height: 100%;
+	}
+}

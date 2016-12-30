@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{this.titlePage}}</ion-title>
+    <ion-buttons end>
+      <button [hidden]="!productList" ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-list #popoverContent [hidden]="!this.productList">
+
+    <ion-item *ngFor="let product of productList | productInView : this.selectedMarket" (press)="pressEvent($event, product)" (click)="goTo(product)" [ngClass]="{'fav':product.favourite, 'new': product.new}">
+      <ion-thumbnail item-left>
+        <img src="{{product.thumb}}">
+      </ion-thumbnail>
+      <h2>{{product.nombre}} <ion-icon name="star" class="fav" [hidden]="!product.favourite" ></ion-icon></h2>
+      <p>{{product.category}}</p>
+      <p class="branch">{{product.branch}}</p>
+      <h3  clear item-right>{{product.price}}€</h3>     
+    </ion-item>
+
+  </ion-list> 
+  
+  <ion-fab bottom right  (click)="newProduct()">
+    <button  ion-fab ><ion-icon name="add"></ion-icon></button>  
+  </ion-fab>
+    <ion-spinner text-center icon="spiral"  large fab-center class="spinner" [hidden]="this.productList.length>0"></ion-spinner>
+</ion-content>
